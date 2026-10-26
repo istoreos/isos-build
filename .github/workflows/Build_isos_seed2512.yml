@@ -108,7 +108,7 @@ jobs:
           echo "$VERSION" > version
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-          echo -n 5a6c1f71be683ae9980b15d3ce73e24d > .vermagic
+          echo -n f0a7348f9cb959e1bf4d0447669b031e > .vermagic
           make -j$(nproc) V=s
 
       - name: Prepare artifacts
@@ -117,7 +117,7 @@ jobs:
           mkdir -p artifacts/${{ matrix.model }}
           
           rom=openwrt-${{ matrix.model }}/bin/targets/mediatek/filogic/${{ matrix.output_pattern }}
-          cp -a $rom artifacts/${{ matrix.model }}/istoreos-25.12.5-$VERSION-seed-${{ matrix.lower_model }}-squashfs-sysupgrade.bin
+          cp -a $rom artifacts/${{ matrix.model }}/istoreos-25.12.6-$VERSION-seed-${{ matrix.lower_model }}-squashfs-sysupgrade.bin
           cp -a openwrt-${{ matrix.model }}/.config openwrt-${{ matrix.model }}/${{ matrix.lower_model }}.config
 
       - name: Upload Firmware Artifacts
